@@ -10,11 +10,14 @@ interface Character {
 }
 
 export const CharacterList = ({ characters }: { characters: Character[] }) => {
-    return (
+
+    return characters.length ? (
         <div style={{ display: "flex", gap: "10px", flexWrap: "wrap" }}>
             {characters.map((char) => (
                 <CharacterInfo key={char.id} character={char} />
             ))}
         </div>
+    ) : (
+        <p>No characters found. Try another name.</p>
     );
 };
